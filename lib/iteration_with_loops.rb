@@ -6,7 +6,14 @@ mixed_data = [
 
 def join_nested_strings(src)
   row_index = 0
+  phrase = []
   while row_index < src.length do
-    element_index = 0
-    phrase = []
-    while element_index < src[row_index].length do
+    src[row_index].each do |element|
+      if element.is_a?(String)
+        phrase << element
+      end
+    end
+    row_index += 1
+  end
+  phrase.join(" ")
+end
